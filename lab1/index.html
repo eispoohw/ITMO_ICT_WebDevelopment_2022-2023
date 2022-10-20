@@ -1,718 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <script>
+	// Hack for scrolling window when linking to anchor tag with fixed nav header
+        var shiftWindow = function() { scrollBy(0, -75) };
+        window.addEventListener("hashchange", shiftWindow);
+        function load() { if (window.location.hash) shiftWindow(); }
+      </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Lab1 - WebDevelopment Course</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
-    
-    
-      
-        <title>Laboratory Work 1 - WebDevelopment Course</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/main.7a952b86.min.css">
-      
-        
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
-        
-      
-      
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/http.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/base.js"></script> 
+    </head>
 
-    
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
+    <body class="">
 
-    
-    
-    
-  </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
-  
-    
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#laboratory-work-1-working-with-sockets" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+	<div class="container">
+	<a class="navbar-brand" href="..">WebDevelopment Course</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+	</button>
 
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="WebDevelopment Course" class="md-header__button md-logo" aria-label="WebDevelopment Course" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+	<div class="collapse navbar-collapse">
+          <!-- Main navigation -->
+          <nav class="nav">
+            <ul class="navbar-nav">
+              <li >
+                <a class="nav-link" href="..">Home</a>
+              </li>
+              <li class="active">
+                <a class="nav-link" href="./">Lab1</a>
+              </li>
+            </ul>
+          </nav>
 
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            WebDevelopment Course
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              Laboratory Work 1
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
+          <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+		<i class="fa fa-search"></i> Search
+              </a>
+            </li>
+          </ul>
+	</div>
+	</div>
+      </nav><div id="content" class="container">
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
+      <div class="row">
+        <div class="col-md-9" role="main">
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href=".." title="WebDevelopment Course" class="md-nav__button md-logo" aria-label="WebDevelopment Course" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    WebDevelopment Course
-  </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
     
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Home
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2">
-          Labs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Labs" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          Labs
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Laboratory Work 1
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Laboratory Work 1
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#task-1" class="md-nav__link">
-    Task 1
-  </a>
-  
-    <nav class="md-nav" aria-label="Task 1">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configpy-contains-the-necessary-constants" class="md-nav__link">
-    config.py - contains the necessary constants
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#serverpy-reates-a-server-socket-and-waits-for-messages-from-the-client" class="md-nav__link">
-    server.py - сreates a server socket and waits for messages from the client
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clientpy-connects-to-the-server-and-sends-it-a-message" class="md-nav__link">
-    client.py - connects to the server and sends it a message
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-2" class="md-nav__link">
-    Task 2
-  </a>
-  
-    <nav class="md-nav" aria-label="Task 2">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure_1" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configpy-contains-the-necessary-constants_1" class="md-nav__link">
-    config.py - contains the necessary constants
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#serverpy-creates-a-server-socket-checks-the-input-and-sends-an-answer-if-possible" class="md-nav__link">
-    server.py - creates a server socket, checks the input and sends an answer if possible
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clientpy-connects-to-the-server-and-sends-it-values" class="md-nav__link">
-    client.py - connects to the server and sends it values
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-3" class="md-nav__link">
-    Task 3
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#structure_2" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#indexhtml-response-template" class="md-nav__link">
-    index.html - response template
-  </a>
-  
-    <nav class="md-nav" aria-label="index.html - response template">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#serverpy-responding-with-html" class="md-nav__link">
-    server.py - responding with HTML
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-4" class="md-nav__link">
-    Task 4
-  </a>
-  
-    <nav class="md-nav" aria-label="Task 4">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure_3" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configpy" class="md-nav__link">
-    config.py
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#serverpy" class="md-nav__link">
-    server.py
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clientpy" class="md-nav__link">
-    client.py
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-5" class="md-nav__link">
-    Task 5
-  </a>
-  
-    <nav class="md-nav" aria-label="Task 5">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure_4" class="md-nav__link">
-    Structure
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
+    <li class="breadcrumb-item active" aria-current="page">Lab1</li>
+  </ol>
 </nav>
-      
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#task-1" class="md-nav__link">
-    Task 1
-  </a>
-  
-    <nav class="md-nav" aria-label="Task 1">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configpy-contains-the-necessary-constants" class="md-nav__link">
-    config.py - contains the necessary constants
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#serverpy-reates-a-server-socket-and-waits-for-messages-from-the-client" class="md-nav__link">
-    server.py - сreates a server socket and waits for messages from the client
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clientpy-connects-to-the-server-and-sends-it-a-message" class="md-nav__link">
-    client.py - connects to the server and sends it a message
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-2" class="md-nav__link">
-    Task 2
-  </a>
-  
-    <nav class="md-nav" aria-label="Task 2">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure_1" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configpy-contains-the-necessary-constants_1" class="md-nav__link">
-    config.py - contains the necessary constants
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#serverpy-creates-a-server-socket-checks-the-input-and-sends-an-answer-if-possible" class="md-nav__link">
-    server.py - creates a server socket, checks the input and sends an answer if possible
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clientpy-connects-to-the-server-and-sends-it-values" class="md-nav__link">
-    client.py - connects to the server and sends it values
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-3" class="md-nav__link">
-    Task 3
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#structure_2" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#indexhtml-response-template" class="md-nav__link">
-    index.html - response template
-  </a>
-  
-    <nav class="md-nav" aria-label="index.html - response template">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#serverpy-responding-with-html" class="md-nav__link">
-    server.py - responding with HTML
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-4" class="md-nav__link">
-    Task 4
-  </a>
-  
-    <nav class="md-nav" aria-label="Task 4">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure_3" class="md-nav__link">
-    Structure
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configpy" class="md-nav__link">
-    config.py
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#serverpy" class="md-nav__link">
-    server.py
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clientpy" class="md-nav__link">
-    client.py
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-5" class="md-nav__link">
-    Task 5
-  </a>
-  
-    <nav class="md-nav" aria-label="Task 5">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure_4" class="md-nav__link">
-    Structure
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
 
 
 <h1 id="laboratory-work-1-working-with-sockets">Laboratory Work 1: Working with sockets</h1>
@@ -723,19 +87,21 @@
 message must be reflected on the server side. The server responds with a <code>"Hello, client"</code> message to the client. The
 message must be displayed to the client.</p>
 <p>Implement using the <strong>UDP</strong> protocol.</p>
-<h3 id="structure">Structure</h3>
-<h4 id="configpy-contains-the-necessary-constants"><code>config.py</code> - contains the necessary constants</h4>
-<pre><code class="language-python">import socket
+<h3 id="configpy"><code>config.py</code></h3>
+<p>contains the necessary constants</p>
+<pre><code class="language-python"># address properties
+import socket
 
-# address properties
 HOST = socket.gethostbyname(socket.gethostname())
 PORT = 7171
 ADDR = (HOST, PORT)
+
 # message properties
 BUFFER_SIZE = 64
 FORMAT = 'utf-8'
 </code></pre>
-<h4 id="serverpy-reates-a-server-socket-and-waits-for-messages-from-the-client"><code>server.py</code> - сreates a server socket and waits for messages from the client</h4>
+<h3 id="serverpy"><code>server.py</code></h3>
+<p>creates a server socket and waits for messages from the client</p>
 <pre><code class="language-python">from config import *
 
 CONNECT_MSG = &quot;Hello, client!&quot;
@@ -753,9 +119,9 @@ def main():
 
 if __name__ == &quot;__main__&quot;:
     main()
-
 </code></pre>
-<h4 id="clientpy-connects-to-the-server-and-sends-it-a-message"><code>client.py</code> - connects to the server and sends it a message</h4>
+<h3 id="clientpy"><code>client.py</code></h3>
+<p>connects to the server and sends it a message</p>
 <pre><code class="language-python">from config import *
 
 CONNECT_MSG = &quot;Hello, server!&quot;
@@ -770,15 +136,15 @@ def main():
 
 if __name__ == &quot;__main__&quot;:
     main()
-
 </code></pre>
+<hr />
 <h2 id="task-2">Task 2</h2>
 <p>Implement the client and server part of the application. The client asks the server to perform a mathematical operation:
 solving a quadratic equation, the parameters of which are entered from the keyboard. The server processes the received
 data and returns the result to the client.</p>
 <p>Implement using the <strong>TCP</strong> protocol</p>
-<h3 id="structure_1">Structure</h3>
-<h4 id="configpy-contains-the-necessary-constants_1"><code>config.py</code> - contains the necessary constants</h4>
+<h3 id="configpy_1"><code>config.py</code></h3>
+<p>contains the necessary constants</p>
 <pre><code class="language-python">import socket
 
 # address properties
@@ -791,7 +157,8 @@ FORMAT = 'utf-8'
 MISTAKE = &quot;[INVALID INPUT] three coefficients needed, separated by space. Example: 1 2 3&quot;
 
 </code></pre>
-<h4 id="serverpy-creates-a-server-socket-checks-the-input-and-sends-an-answer-if-possible"><code>server.py</code> - creates a server socket, checks the input and sends an answer if possible</h4>
+<h3 id="serverpy_1"><code>server.py</code></h3>
+<p>creates a server socket, checks the input and sends an answer if possible</p>
 <pre><code class="language-python">from config import *
 from math import sqrt
 
@@ -829,7 +196,8 @@ def main():
 if __name__ == &quot;__main__&quot;:
     main()
 </code></pre>
-<h4 id="clientpy-connects-to-the-server-and-sends-it-values"><code>client.py</code> - connects to the server and sends it values</h4>
+<h3 id="clientpy_1"><code>client.py</code></h3>
+<p>connects to the server and sends it values</p>
 <pre><code class="language-python">from config import *
 
 
@@ -855,12 +223,13 @@ def main():
 if __name__ == &quot;__main__&quot;:
     main()
 </code></pre>
+<hr />
 <h2 id="task-3">Task 3</h2>
-<p>Implement the server part of the application. The client connects to the server. In response The client receives an http
-message containing an html page, which the server The client receives an http message containing a page which the server
-loads from the <code>index.html</code> file.</p>
-<h2 id="structure_2">Structure</h2>
-<h3 id="indexhtml-response-template"><code>index.html</code> - response template</h3>
+<p>Implement the server part of the application. The client connects to the server. In response The client receives
+an http message containing a html page, which the server The client receives a http message containing a page which
+the server loads from the <code>index.html</code> file.</p>
+<h3 id="indexhtml"><code>index.html</code></h3>
+<p>response template</p>
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -875,11 +244,10 @@ loads from the <code>index.html</code> file.</p>
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<h4 id="serverpy-responding-with-html"><code>server.py</code> - responding with HTML</h4>
-<ul>
-<li>send_answer() sending HTTP answer, which contains index.html template, to the client</li>
-<li>main() - creating server socket and running it</li>
-</ul>
+<h3 id="serverpy_2"><code>server.py</code></h3>
+<p>responding with HTML </p>
+<p><code>send_answer()</code> sending HTTP answer, which contains index.html template, to the client</p>
+<p><code>main()</code> - creating server socket and running it</p>
 <pre><code class="language-python">import socket
 
 # address properties
@@ -918,10 +286,11 @@ def main():
 if __name__ == &quot;__main__&quot;:
     main()
 </code></pre>
+<hr />
 <h2 id="task-4">Task 4</h2>
 <p>Implement multiplayer chat.</p>
-<h3 id="structure_3">Structure</h3>
-<h4 id="configpy"><code>config.py</code></h4>
+<h3 id="configpy_2"><code>config.py</code></h3>
+<p>contains the necessary constants</p>
 <pre><code class="language-python">import socket
 from threading import Thread
 
@@ -934,10 +303,16 @@ BUFFER_SIZE = 64
 FORMAT = 'utf-8'
 ASKING = &quot;Enter your username: &quot;
 </code></pre>
-<h4 id="serverpy"><code>server.py</code></h4>
-<pre><code class="language-python">
-from typing import Dict
-
+<h3 id="serverpy_3"><code>server.py</code></h3>
+<p>contains class <code>Chat</code>
+- <code>s: socket.socket</code> - server socket
+- <code>users: Dict[socket.socket, str]</code> - dictionary where key is client socket, value - username</p>
+<ol>
+<li><code>broadcast()</code> - sending a message to all clients in <code>users</code></li>
+<li><code>handle()</code> - handling clients messages</li>
+<li><code>run()</code> - starting server</li>
+</ol>
+<pre><code class="language-python">from typing import Dict
 from config import *
 
 
@@ -988,7 +363,15 @@ def main():
 if __name__ == &quot;__main__&quot;:
     main()
 </code></pre>
-<h4 id="clientpy"><code>client.py</code></h4>
+<h3 id="clientpy_2"><code>client.py</code></h3>
+<p>Contains class <code>User</code>
+- <code>username: str</code> - client username
+- <code>s: socket.socket</code> - client socket</p>
+<ol>
+<li><code>receive()</code> - getting messages from the server</li>
+<li><code>send()</code> - sending new message to the server</li>
+<li><code>start()</code> - starting client socket thread</li>
+</ol>
 <pre><code class="language-python">from config import *
 
 
@@ -1035,71 +418,337 @@ if __name__ == &quot;__main__&quot;:
 </code></pre>
 <h2 id="task-5">Task 5</h2>
 <p>Write a simple web-server to handle GET and POST http requests by means of Python and socket library.</p>
-<h3 id="structure_4">Structure</h3>
-<p>🕺🕺🕺</p>
+<h3 id="requestpy"><code>request.py</code></h3>
+<p>contains <code>Request</code> class and <code>Response</code> class</p>
+<pre><code class="language-python">from functools import lru_cache
+from urllib.parse import parse_qs, urlparse
 
 
+class Request:
+    def __init__(self, method, target, version, headers, rfile):
+        self.method = method
+        self.target = target
+        self.version = version
+        self.headers = headers
+        self.rfile = rfile
+
+    @property
+    def path(self):
+        return self.url.path
+
+    @property
+    @lru_cache(maxsize=None)
+    def query(self):
+        return parse_qs(self.url.query)
+
+    @property
+    @lru_cache(maxsize=None)
+    def url(self):
+        return urlparse(self.target)
+
+    def body(self):
+        size = self.headers.get('Content-Length')
+        if not size:
+            return None
+        return self.rfile.read(size)
 
 
+class Response:
+    def __init__(self, status, reason, headers=None, body=None):
+        self.status = status
+        self.reason = reason
+        self.headers = headers
+        self.body = body
+</code></pre>
+<h3 id="serverpy_4"><code>server.py</code></h3>
+<p>HTTPServer. Source: https://iximiuz.com/ru/posts/writing-python-web-server-part-3/ </p>
+<pre><code class="language-python">import json
+import socket
+from request import Request, Response
+from email.parser import Parser
 
-                
-              </article>
-            </div>
-          
-          
-        </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Home
-            </div>
-          </div>
-        </a>
-      
-      
-    </nav>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
+MAX_LINE = 64 * 1024
+MAX_HEADERS = 100
+
+
+class MyHTTPServer:
+    def __init__(self, host, port, name):
+        self._host = host
+        self._port = port
+        self._name = name
+        self._marks = {'Физкультура': 5}
+        print(f&quot;[RUNNING] Created HTTPServer '{name}'&quot;)
+
+    def serve_forever(self):
+        serv_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, proto=0)
+        try:
+            serv_sock.bind((self._host, self._port))
+            serv_sock.listen()
+            print(f&quot;[LISTENING] Server '{self._name}' on {self._host}:{self._port}\r\n&quot;)
+            while True:
+                conn, addr = serv_sock.accept()
+                print(f&quot;[NEW]: {addr}&quot;)
+                try:
+                    self.serve_client(conn)
+                except Exception as e:
+                    print('[ERROR]: Client serving failed', e)
+        finally:
+            print('[EXIT]')
+            serv_sock.close()
+
+    def serve_client(self, conn):
+        try:
+            req = self.parse_request(conn)
+            resp = self.handle_request(req)
+            self.send_response(conn, resp)
+        except ConnectionResetError:
+            conn = None
+        except Exception as e:
+            self.send_error(conn, e)
+        if conn:
+            req.rfile.close()
+            conn.close()
+
+    def parse_request(self, conn):
+        rfile = conn.makefile('rb')
+        method, target, ver = self.parse_request_line(rfile)
+        headers = self.parse_headers(rfile)
+        host = headers.get('Host')
+        if not host:
+            raise HTTPError(400, 'Bad request', 'Host header is missing')
+        if host != f'{self._host}:{self._port}':
+            raise HTTPError(404, 'Not found')
+        return Request(method, target, ver, headers, rfile)
+
+    @staticmethod
+    def parse_request_line(rfile):
+        raw = rfile.readline(MAX_LINE + 1)
+        if len(raw) &gt; MAX_LINE:
+            raise HTTPError(400, 'Bad request', 'Request line is too long')
+        req_line = str(raw, 'iso-8859-1')
+        words = req_line.split()
+        if len(words) != 3:
+            raise HTTPError(400, 'Bad request', 'Malformed request line')
+        method, target, ver = words
+        if ver != 'HTTP/1.1':
+            raise HTTPError(505, 'HTTP Version Not Supported')
+        return method, target, ver
+
+    @staticmethod
+    def parse_headers(rfile):
+        headers = []
+        while True:
+            line = rfile.readline(MAX_LINE + 1)
+            if len(line) &gt; MAX_LINE:
+                raise HTTPError(494, 'Request header too large')
+            if line in (b'\r\n', b'\n', b''):
+                break
+            headers.append(line)
+            if len(headers) &gt; MAX_HEADERS:
+                raise HTTPError(494, 'Too many headers')
+        sheaders = b''.join(headers).decode('iso-8859-1')
+        return Parser().parsestr(sheaders)
+
+    def handle_request(self, req):
+        if req.path == '/update' and req.method == 'POST':
+            return self.handle_post_mark(req)
+        if req.path == '/marks' and req.method == 'GET':
+            return self.handle_get_marks(req)
+        raise HTTPError(404, 'Not found')
+
+    def send_response(self, conn, resp):
+        wfile = conn.makefile('wb')
+        status_line = f'HTTP/1.1 {resp.status} {resp.reason}\r\n'
+        wfile.write(status_line.encode('iso-8859-1'))
+        if resp.headers:
+            for (key, value) in resp.headers:
+                header_line = f'{key}: {value}\r\n'
+                wfile.write(header_line.encode('iso-8859-1'))
+        wfile.write(b'\r\n')
+        if resp.body:
+            wfile.write(resp.body)
+        wfile.flush()
+        wfile.close()
+
+    def send_error(self, conn, err):
+        try:
+            status = err.status
+            reason = err.reason
+            body = (err.body or err.reason).encode('utf-8')
+        except:
+            status = 500
+            reason = b'Internal Server Error'
+            body = b'Internal Server Error'
+        resp = Response(status, reason, [('Content-Length', len(body))], body)
+        self.send_response(conn, resp)
+
+    def handle_post_mark(self, req):
+        self._marks[req.query['name'][0]] = req.query['mark'][0]
+        return Response(204, 'Created')
+
+    def handle_get_marks(self, req):
+        accept = req.headers.get('Accept')
+        if 'text/html' in accept:
+            contentType = 'text/html; charset=utf-8'
+            body = '&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;'
+            body += f'&lt;div&gt;Оценки ({len(self._marks)})&lt;/div&gt;'
+            body += '&lt;ul&gt;'
+            for m in self._marks:
+                body += f'&lt;li&gt;{m}: {self._marks[m]}&lt;/li&gt;'
+            body += '&lt;/ul&gt;'
+            body += '&lt;/body&gt;&lt;/html&gt;'
+        elif 'application/json' in accept:
+            contentType = 'application/json; charset=utf-8'
+            body = json.dumps(self._marks)
+        else:
+            return Response(406, 'Not Acceptable')
+        body = body.encode('utf-8')
+        headers = [('Content-Type', contentType), ('Content-Length', len(body))]
+        return Response(200, 'OK', headers, body)
+
+
+class HTTPError(Exception):
+    def __init__(self, status, reason, body=None):
+        super()
+        self.status = status
+        self.reason = reason
+        self.body = body
+
+
+if __name__ == '__main__':
+    print('[LOADING...]')
+    host = socket.gethostbyname(socket.gethostname())
+    port = 7777
+    serv = MyHTTPServer(host, port, 'Marks')
+    try:
+        serv.serve_forever()
+    except KeyboardInterrupt:
+        print('Exit!')
+        pass
+</code></pre>
+
+<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+  <li class="last-updated-holder displayDate loading">
+    <span class="last-updated-text">Last updated:</span>
+    <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date"></time>
+  </li>
+<!--
+  <li class="readingTime">
+    2 minutes to read
+  </li>
+-->
+  <li class="contributors-holder">
+    <span class="contributors-text">Contributors</span>
+    <ul class="contributors" data-bi-name="contributors"></ul>
+  </li>
+</ul>
 </div>
-      
+        <div class="col-md-3"><div class="navbar-light navbar-expand-md hidden-print sticky-top sticky-offset" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
     </div>
-  </div>
-</footer>
-      
+
+    <div id="toc-collapse" class="navbar-collapse collapse card">
+        <ul class="nav flex-column bs-sidenav">
+            <li class="nav-item main"><a class="nav-link" href="#laboratory-work-1-working-with-sockets">Laboratory Work 1: Working with sockets</a></li>
+                <li class="nav-item">
+                    <a href="#task-1" class="nav-link">Task 1</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#task-2" class="nav-link">Task 2</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#task-3" class="nav-link">Task 3</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#task-4" class="nav-link">Task 4</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#task-5" class="nav-link">Task 5</a>
+                </li>
+        </ul>
     </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
+</div></div>
+      </div>
+      </div>
+
+      <footer class="col-md-12">
+	<hr>
+	<div class="container">
+	</div>
+      </footer>
+      <script>
+	var base_url = "..",
+            shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+      </script>
+      <script src="../js/base.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+      <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
     </div>
-    
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.37e9125f.min.js"></script>
-      
-    
-  </body>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="h4 modal-title">Keyboard Shortcuts</p>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
 </html>
