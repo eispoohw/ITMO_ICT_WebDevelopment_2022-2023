@@ -53,6 +53,9 @@
               <li class="active">
                 <a class="nav-link" href="./">Lab1</a>
               </li>
+              <li >
+                <a class="nav-link" href="../lab2/">Lab2</a>
+              </li>
             </ul>
           </nav>
 
@@ -87,7 +90,6 @@
 message must be reflected on the server side. The server responds with a <code>"Hello, client"</code> message to the client. The
 message must be displayed to the client.</p>
 <p>Implement using the <strong>UDP</strong> protocol.</p>
-<p><img alt="img.png" src="../img/lab1.png" /></p>
 <h3 id="configpy"><code>config.py</code></h3>
 <p>contains the necessary constants</p>
 <pre><code class="language-python"># address properties
@@ -144,7 +146,6 @@ if __name__ == &quot;__main__&quot;:
 solving a quadratic equation, the parameters of which are entered from the keyboard. The server processes the received
 data and returns the result to the client.</p>
 <p>Implement using the <strong>TCP</strong> protocol</p>
-<p><img alt="img.png" src="../img/lab2.png" /></p>
 <h3 id="configpy_1"><code>config.py</code></h3>
 <p>contains the necessary constants</p>
 <pre><code class="language-python">import socket
@@ -230,9 +231,6 @@ if __name__ == &quot;__main__&quot;:
 <p>Implement the server part of the application. The client connects to the server. In response The client receives
 an http message containing a html page, which the server The client receives a http message containing a page which
 the server loads from the <code>index.html</code> file.</p>
-<p><img alt="img.png" src="../img/lab3_console.png" />
-<img alt="img.png" src="../img/lab3_1.png" />
-<img alt="img.png" src="../img/lab3_2.png" /></p>
 <h3 id="indexhtml"><code>index.html</code></h3>
 <p>response template</p>
 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
@@ -294,8 +292,6 @@ if __name__ == &quot;__main__&quot;:
 <hr />
 <h2 id="task-4">Task 4</h2>
 <p>Implement multiplayer chat.</p>
-<p><img alt="img.png" src="../img/lab4_1.png" />
-<img alt="img.png" src="../img/lab4_2.png" /></p>
 <h3 id="configpy_2"><code>config.py</code></h3>
 <p>contains the necessary constants</p>
 <pre><code class="language-python">import socket
@@ -311,9 +307,9 @@ FORMAT = 'utf-8'
 ASKING = &quot;Enter your username: &quot;
 </code></pre>
 <h3 id="serverpy_3"><code>server.py</code></h3>
-<p>contains class <code>Chat</code></p>
-<p><code>s: socket.socket</code> - server socket</p>
-<p><code>users: Dict[socket.socket, str]</code> - dictionary where key is client socket, value - username</p>
+<p>contains class <code>Chat</code>
+- <code>s: socket.socket</code> - server socket
+- <code>users: Dict[socket.socket, str]</code> - dictionary where key is client socket, value - username</p>
 <ol>
 <li><code>broadcast()</code> - sending a message to all clients in <code>users</code></li>
 <li><code>handle()</code> - handling clients messages</li>
@@ -371,9 +367,9 @@ if __name__ == &quot;__main__&quot;:
     main()
 </code></pre>
 <h3 id="clientpy_2"><code>client.py</code></h3>
-<p>Contains class <code>User</code></p>
-<p><code>username: str</code> - client username</p>
-<p><code>s: socket.socket</code> - client socket</p>
+<p>Contains class <code>User</code>
+- <code>username: str</code> - client username
+- <code>s: socket.socket</code> - client socket</p>
 <ol>
 <li><code>receive()</code> - getting messages from the server</li>
 <li><code>send()</code> - sending new message to the server</li>
@@ -425,10 +421,6 @@ if __name__ == &quot;__main__&quot;:
 </code></pre>
 <h2 id="task-5">Task 5</h2>
 <p>Write a simple web-server to handle GET and POST http requests by means of Python and socket library.</p>
-<p><img alt="img.png" src="../img/lab5_1.png" />
-<img alt="img.png" src="../img/lab5_2.png" />
-<img alt="img.png" src="../img/lab5_3.png" />
-<img alt="img.png" src="../img/lab5_4.png" /></p>
 <h3 id="requestpy"><code>request.py</code></h3>
 <p>contains <code>Request</code> class and <code>Response</code> class</p>
 <pre><code class="language-python">from functools import lru_cache

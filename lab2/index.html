@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <script>
+	// Hack for scrolling window when linking to anchor tag with fixed nav header
+        var shiftWindow = function() { scrollBy(0, -75) };
+        window.addEventListener("hashchange", shiftWindow);
+        function load() { if (window.location.hash) shiftWindow(); }
+      </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Lab2 - WebDevelopment Course</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/http.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/base.js"></script> 
+    </head>
+
+    <body class="">
+
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+	<div class="container">
+	<a class="navbar-brand" href="..">WebDevelopment Course</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse">
+          <!-- Main navigation -->
+          <nav class="nav">
+            <ul class="navbar-nav">
+              <li >
+                <a class="nav-link" href="..">Home</a>
+              </li>
+              <li >
+                <a class="nav-link" href="../lab1/">Lab1</a>
+              </li>
+              <li class="active">
+                <a class="nav-link" href="./">Lab2</a>
+              </li>
+            </ul>
+          </nav>
+
+          <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+		<i class="fa fa-search"></i> Search
+              </a>
+            </li>
+          </ul>
+	</div>
+	</div>
+      </nav><div id="content" class="container">
+        
+      <div class="row">
+        <div class="col-md-9" role="main">
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    
+    <li class="breadcrumb-item active" aria-current="page">Lab2</li>
+  </ol>
+</nav>
+
+
+<h1 id="laboratory-work-2-django">Laboratory Work 2: Django</h1>
+<p><strong>Purpose of work</strong>: acquiring practical skills and abilities to implement Django 2.2 web services.</p>
+<p><strong>Stack</strong>: Django</p>
+<h2 id="task">Task</h2>
+<p>Implement a website using Django 3 framework and PostgreSQL* DBMS, according to the variant of the laboratory work.</p>
+<h3 id="task-description-variant-4">Task description (variant 4)</h3>
+<ol>
+<li>Tour list of the tour operator</li>
+</ol>
+<p>Stores information about tour name, tour description, tour period, payment conditions.</p>
+<p>The following functionality must be implemented:
+- Registration of new users.
+- Viewing and booking tours. User must be able to edit and delete their bookings.
+- Writing reviews for tours. When adding a comment the dates of the tour, comment text, rating (1-10), information about the commenter must be saved.
+- The administrator must be able to confirm tour bookings using Django-admin.
+- A table showing all sold tours by country should be generated in the client part.</p>
+<h4 id="diagram">Diagram</h4>
+<p><img alt="img.png" src="../img.png" /></p>
+<h4 id="models">Models</h4>
+<pre><code class="language-python">class Country(models.Model):
+    name = models.CharField('Country name', max_length=64, unique=True)
+    slug = models.SlugField('Country link', max_length=64, unique=True)
+    description = models.CharField('Country description', max_length=1000, null=True)
+    image = models.ImageField('Image of country', upload_to='images/', null=True, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('country_details_url', kwargs={'slug': self.slug})
+
+    def __str__(self):
+        return self.name
+
+
+class Tour(models.Model):
+    title = models.CharField(max_length=150, db_index=True)
+    description = models.CharField(max_length=1024, db_index=True)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=150, unique=True)
+    price_per_person = models.FloatField()
+    nights_count = models.IntegerField()
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('tour_details_url', kwargs={'slug': self.slug})
+
+
+class TourImage(models.Model):
+    name = models.CharField('Tour image name', max_length=64, unique=True)
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+Customer = get_user_model()
+
+
+class TourConducting(models.Model):
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    date_start = models.DateField()
+    is_verified = models.BooleanField(default=False)
+    is_paid = models.BooleanField(default=False)
+    tourists = models.IntegerField(default=1)
+    contact_info = models.TextField()
+    review_text = models.TextField(null=True, default=None, blank=True)
+    rate = models.IntegerField(null=True, default=None, blank=True)
+
+    def __str__(self):
+        status = 'PAID' if self.is_paid else 'VERIFIED' if self.is_verified else 'NEW'
+        return f&quot;[{status}] {self.tour} / {self.customer}&quot;
+</code></pre>
+<h4 id="urls">Urls</h4>
+<pre><code class="language-python">urlpatterns = [
+    path('countries/', countries_list, name='countries_list_url'),
+    path('countries/&lt;str:slug&gt;/', country_details, name='country_details_url'),
+
+    path('tours/', tours_list, name='tours_list_url'),
+    path('tours/&lt;str:slug&gt;/', tour_details, name='tour_details_url'),
+
+    path('registration/', registration, name='registration_url'),
+    path('login/', login_page, name='login_url'),
+    path('logout/', logout_user, name='logout_url'),
+
+    path('profile/', profile, name='profile_url'),
+    path('sells/', sells, name='sells_url'),
+
+    path('profile/&lt;int:pk&gt;/review/update/', ReviewUpdate.as_view()),
+
+    path('profile/&lt;int:pk&gt;/delete/', TourConductingDelete.as_view()),
+    path('profile/&lt;int:pk&gt;/update/', TourConductingUpdate.as_view()),
+]
+</code></pre>
+<h4 id="views">Views</h4>
+<ol>
+<li>Countries info</li>
+</ol>
+<pre><code class="language-python">def countries_list(request):
+    countries = Country.objects.all()
+    return render(request, 'WhoopsieTravel/countries.html', context={'countries': countries})
+
+
+@login_required(login_url='login_url')
+def country_details(request, slug):
+    country = Country.objects.get(slug__iexact=slug)
+    tours = Tour.objects.filter(country__name=country.name)
+    for t in tours:
+        images = TourImage.objects.filter(tour__title=t.title)
+        t.images = images
+    return render(request, 'WhoopsieTravel/country_details.html', context={'country': country, 'tours': tours})
+</code></pre>
+<ol>
+<li>Tours info</li>
+</ol>
+<pre><code class="language-python">def tours_list(request):
+    tours = Tour.objects.all()
+    for t in tours:
+        images = TourImage.objects.filter(tour__title=t.title)
+        t.images = images
+    return render(request, 'WhoopsieTravel/tours.html', context={'tours': tours})
+
+
+@login_required(login_url='login_url')
+def tour_details(request, slug):
+    tour = Tour.objects.get(slug__iexact=slug)
+    rates = TourConducting.objects.filter(tour__title=tour.title).exclude(rate=None)
+    images = TourImage.objects.filter(tour__title=tour.title)
+    tour.images = images
+
+    form = BookingForm(request.POST or None)
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('profile_url')
+
+    isOrdered = TourConducting.objects.filter(customer__username=request.user.username, tour__title=tour.title,
+                                              date_start__gt=datetime.date.today())
+
+    return render(request, 'WhoopsieTravel/tour_details.html',
+                  context={'tour': tour, 'form': form, 'ordered': isOrdered, 'rates': rates})
+</code></pre>
+<ol>
+<li>Registration and authentication</li>
+</ol>
+<pre><code class="language-python">def registration(request):
+    if request.user.is_authenticated:
+        return redirect('tours_list_url')
+    else:
+        form = CreateCustomerForm()
+
+        if request.method == 'POST':
+            form = CreateCustomerForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Account was created for ' + form.cleaned_data.get('username'))
+
+                return redirect('login_url')
+
+        return render(request, 'WhoopsieTravel/registration.html', context={'form': form})
+
+
+def login_page(request):
+    if request.user.is_authenticated:
+        return redirect('tours_list_url')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect('profile_url')
+            else:
+                messages.info(request, 'Username OR password is incorrect')
+
+        return render(request, 'WhoopsieTravel/login.html', context={})
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('login_url')
+
+</code></pre>
+<ol>
+<li>Extra pages</li>
+</ol>
+<pre><code class="language-python">
+@login_required(login_url='login_url')
+def profile(request):
+    tour_conducting = TourConducting.objects.filter(customer__username__iexact=request.user)
+    tour_conducting = tour_conducting.order_by('date_start').reverse()
+    return render(request, 'WhoopsieTravel/profile.html',
+                  context={'tc': tour_conducting, 'today': datetime.date.today()})
+
+
+def sells(request):
+    tour_conducting = TourConducting.objects.filter(is_paid=True).order_by('date_start').reverse()
+    return render(request, 'WhoopsieTravel/sells.html', context={'tc': tour_conducting})
+
+</code></pre>
+<ol>
+<li>Django's views to CRUD operations</li>
+</ol>
+<pre><code class="language-python">class ReviewUpdate(UpdateView):
+    model = TourConducting
+    fields = ['review_text', 'rate']
+    success_url = '/travel/profile'
+    template_name = 'WhoopsieTravel/review.html'
+
+
+class TourConductingDelete(DeleteView):
+    model = TourConducting
+    template_name = 'WhoopsieTravel/reserve_delete.html'
+    success_url = '/travel/profile'
+
+
+class TourConductingUpdate(UpdateView):
+    model = TourConducting
+    fields = ['date_start', 'contact_info', 'tourists']
+    success_url = '/travel/profile'
+    template_name = 'WhoopsieTravel/reserve_update.html'
+</code></pre>
+<ol>
+<li>Results</li>
+</ol>
+<p><img alt="img_1.png" src="../img_1.png" />
+<img alt="img_2.png" src="../img_2.png" />
+<img alt="img_3.png" src="../img_3.png" />
+<img alt="img_4.png" src="../img_4.png" />
+<img alt="img_5.png" src="../img_5.png" />
+<img alt="img_6.png" src="../img_6.png" />
+<img alt="img_7.png" src="../img_7.png" />
+<img alt="img_8.png" src="../img_8.png" />
+<img alt="img_9.png" src="../img_9.png" /></p>
+
+<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+  <li class="last-updated-holder displayDate loading">
+    <span class="last-updated-text">Last updated:</span>
+    <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date"></time>
+  </li>
+<!--
+  <li class="readingTime">
+    2 minutes to read
+  </li>
+-->
+  <li class="contributors-holder">
+    <span class="contributors-text">Contributors</span>
+    <ul class="contributors" data-bi-name="contributors"></ul>
+  </li>
+</ul>
+</div>
+        <div class="col-md-3"><div class="navbar-light navbar-expand-md hidden-print sticky-top sticky-offset" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card">
+        <ul class="nav flex-column bs-sidenav">
+            <li class="nav-item main"><a class="nav-link" href="#laboratory-work-2-django">Laboratory Work 2: Django</a></li>
+                <li class="nav-item">
+                    <a href="#task" class="nav-link">Task</a>
+                </li>
+        </ul>
+    </div>
+</div></div>
+      </div>
+      </div>
+
+      <footer class="col-md-12">
+	<hr>
+	<div class="container">
+	</div>
+      </footer>
+      <script>
+	var base_url = "..",
+            shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+      </script>
+      <script src="../js/base.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+      <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="h4 modal-title">Keyboard Shortcuts</p>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
